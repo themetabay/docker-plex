@@ -10,18 +10,17 @@ This fork exands on the healthcheck for verifying media folders are mounted, mor
 
 # Run example:
 ```
-docker run \
--d \
---name plex \
---network=host \
---cap-add SYS_ADMIN \
---privileged \
---restart unless-stopped \
--e TZ="<timezone>" \
--e PLEX_CLAIM="<claimToken>" \
--e HEALTHCHECK_FILE="/data/healthcheck.file" \
---volumes-from plex.config \
---volumes-from plex.transcode \
---volumes-from rclone:rw \
-themetabay/plex:latest
+docker run -d \
+  --name plex \
+  --network=host \
+  --cap-add SYS_ADMIN \
+  --privileged \
+  --restart unless-stopped \
+  -e TZ="<timezone>" \
+  -e PLEX_CLAIM="<claimToken>" \
+  -e HEALTHCHECK_FILE="/data/healthcheck.file" \
+  --volumes-from plex.config \
+  --volumes-from plex.transcode \
+  --volumes-from rclone:rw \
+  themetabay/plex:latest
 ```
