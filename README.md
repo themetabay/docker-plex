@@ -3,7 +3,7 @@
 # Information:
 More information can be found here: https://github.com/plexinc/pms-docker
 
-This fork exands on the healthcheck for verifying media folders are mounted, more to come.
+This fork expands on the healthcheck for verifying media folders are mounted, more to come.
 
 # Requirements
 - The healthcheck file should exist somewhere in the /data folder with your media files and be present only when your media folders are mounted correctly. Docker will be checking to see that the file exists and mark Plex as Unhealthy when your media is missing.
