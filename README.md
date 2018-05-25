@@ -24,3 +24,5 @@ docker run -d \
   --volumes-from rclone:rw \
   themetabay/plex:latest
 ```
+
+An example timezone is America/New_York. Note the underscore _ in New York. 
