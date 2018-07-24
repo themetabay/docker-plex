@@ -19,9 +19,9 @@ docker run -d \
   -e TZ="<timezone>" \
   -e PLEX_CLAIM="<claimToken>" \
   -e HEALTHCHECK_FILE="/data/healthcheck.file" \
-  --volumes-from plex.config \
-  --volumes-from plex.transcode \
-  --volumes-from rclone:rw \
+  --volume plex.config:/config  \
+  -v plex.transcode:/transcode \
+  -v /mnt/rclone:/data:shared  \
   themetabay/plex:latest
 ```
 
