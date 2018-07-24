@@ -1,4 +1,4 @@
-## Forked from: https://github.com/plexinc/pms-docker
+[![](https://images.microbadger.com/badges/image/themetabay/plex.svg)](https://microbadger.com/images/themetabay/plex "Get your own image badge on microbadger.com")  [![Docker Stars](https://img.shields.io/docker/stars/themetabay/plex.svg)](https://hub.docker.com/r/themetabay/plex/)
 
 # Information:
 More information can be found here: https://github.com/plexinc/pms-docker
