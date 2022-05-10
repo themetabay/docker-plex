@@ -41,3 +41,14 @@ jobs:
           push: true
           tags: themetabay/plex:latest 
           labels: ${{ steps.docker_meta.outputs.labels }}
+      - name: Analyze Image
+        id: analyze
+        run: echo "::set-output name=imagelayers::docker history --format "{{.ID}} {{.Size}}" themetabay/plex | wc -l"
+      - name: Generate Badges
+        id: badges
+        uses: emibcn/badge-action@v1.2.1
+        with:
+          label: 'Image Layers'
+          status: '${{ steps.analyze.outputs.imagelayers }}'
+          color: 'blue,555,daf'
+          path: '.github/badges/layers.svg'
