@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
@@ -19,19 +20,23 @@ jobs:
             github-workflow-{{major}}
             github-workflow-{{major}}.{{minor}}
             github-workflow-{{major}}.{{minor}}.{{patch}}
+            
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
         with:
           image: tonistiigi/binfmt:qemu-v5.0.1
           platforms: all
+          
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -41,14 +46,27 @@ jobs:
           push: true
           tags: themetabay/plex:latest 
           labels: ${{ steps.docker_meta.outputs.labels }}
+          
       - name: Analyze Image
         id: analyze
-        run: echo "::set-output name=imagelayers::docker history --format "{{.ID}} {{.Size}}" themetabay/plex | wc -l"
+        run: |
+          echo "::set-output name=imagelayers::docker history --format "{{.ID}} {{.Size}}" themetabay/plex | wc -l"
+          mkdir mkdir -p .github/badges/layers.svg
+          echo "${{ steps.analyze.outputs.imagelayers }}"
+          
       - name: Generate Badges
         id: badges
         uses: emibcn/badge-action@v1.2.1
         with:
           label: 'Image Layers'
-          status: '${{ steps.analyze.outputs.imagelayers }}'
+          status: ${{ steps.analyze.outputs.imagelayers }}
           color: 'blue,555,daf'
           path: '.github/badges/layers.svg'
+          
+      - name: Push back to branch
+        uses: Automattic/action-commit-to-branch@master
+        with:
+          branch: 'master'
+          commit_message: 'PUSH badge to repo'
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
