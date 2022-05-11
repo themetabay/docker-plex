@@ -51,7 +51,7 @@ jobs:
         id: analyze
         run: |
           echo "::set-output name=imagelayers::docker history --format "{{.ID}} {{.Size}}" themetabay/plex | wc -l"
-          mkdir mkdir -p .github/badges/layers.svg
+          mkdir mkdir -p .github/badges
           echo "${{ steps.analyze.outputs.imagelayers }}"
           
       - name: Generate Badges
