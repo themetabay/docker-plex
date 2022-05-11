@@ -69,7 +69,7 @@ jobs:
         with:
           label: 'Image Layers'
           status: ${{ steps.analyze.outputs.imagelayers }}
-          color: '211538', '4a14fa'
+          color: '211538,4a14fa'
           path: '.github/badges/layers.svg'
           
       - name: Push back to branch
