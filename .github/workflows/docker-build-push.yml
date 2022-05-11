@@ -13,8 +13,6 @@ jobs:
         
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
-        with:
-          path: /
         
       - name: Docker meta
         id: docker_meta
