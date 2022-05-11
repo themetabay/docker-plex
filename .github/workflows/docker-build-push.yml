@@ -5,6 +5,8 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      IMAGE: themetabay/plex:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -50,7 +52,8 @@ jobs:
       - name: Analyze Image
         id: analyze
         run: |
-          echo "##[set-output name=imagelayers;]`docker history --format "{{.ID}} {{.Size}}" themetabay/plex | wc -l`"
+          docker pull ${IMAGE}
+          echo "##[set-output name=imagelayers;]`docker history --format "{{.ID}} {{.Size}}" ${IMAGE} | wc -l`"
           mkdir mkdir -p .github/badges
           echo "${{ steps.analyze.outputs.imagelayers }}"
           
