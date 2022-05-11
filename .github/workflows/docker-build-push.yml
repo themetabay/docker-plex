@@ -55,8 +55,11 @@ jobs:
       - name: Analyze Image
         id: analyze
         run: |
+          # pull the image back down from where we just pushed it.
           docker pull ${{ env.DOCKERHUB_IMAGE }}
+          # inspect and count the layers
           echo "##[set-output name=imagelayers;]`docker history --format "{{.ID}} {{.Size}}" ${{ env.DOCKERHUB_IMAGE }} | wc -l`"
+          # make the path if it's not already there
           mkdir mkdir -p .github/badges
           echo "${{ steps.analyze.outputs.imagelayers }}"
           
@@ -66,7 +69,7 @@ jobs:
         with:
           label: 'Image Layers'
           status: ${{ steps.analyze.outputs.imagelayers }}
-          color: 'blue,555,daf'
+          color: '211538', '4a14fa'
           path: '.github/badges/layers.svg'
           
       - name: Push back to branch
