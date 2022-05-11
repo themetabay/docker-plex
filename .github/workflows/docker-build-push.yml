@@ -11,6 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v1.0.2
+        with:
+          path: .env
+          mode: development
+        
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
@@ -46,14 +52,14 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/386,linux/arm/v7,linux/arm/v6,linux/arm64/v8
           push: true
-          tags: themetabay/plex:latest 
+          tags: ${{ env.DOCKERHUB_IMAGE }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           
       - name: Analyze Image
         id: analyze
         run: |
-          docker pull ${IMAGE}
-          echo "##[set-output name=imagelayers;]`docker history --format "{{.ID}} {{.Size}}" ${IMAGE} | wc -l`"
+          docker pull ${{ env.DOCKERHUB_IMAGE }}
+          echo "##[set-output name=imagelayers;]`docker history --format "{{.ID}} {{.Size}}" ${{ env.DOCKERHUB_IMAGE }} | wc -l`"
           mkdir mkdir -p .github/badges
           echo "${{ steps.analyze.outputs.imagelayers }}"
           
