@@ -1,20 +1,20 @@
-<svg width="95.8" height="20" viewBox="0 0 958 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image Layers: ">
-  <title>Image Layers: </title>
+<svg width="102.8" height="20" viewBox="0 0 1028 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image Layers: 0">
+  <title>Image Layers: 0</title>
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="m"><rect width="958" height="200" rx="30" fill="#FFF"/></mask>
+  <mask id="m"><rect width="1028" height="200" rx="30" fill="#FFF"/></mask>
   <g mask="url(#m)">
     <rect width="858" height="200" fill="#555"/>
-    <rect width="100" height="200" fill="url(#x)" x="858"/>
-    <rect width="958" height="200" fill="url(#a)"/>
+    <rect width="170" height="200" fill="url(#x)" x="858"/>
+    <rect width="1028" height="200" fill="url(#a)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="758" fill="#000" opacity="0.25">Image Layers</text>
     <text x="50" y="138" textLength="758">Image Layers</text>
-    <text x="913" y="148" textLength="0" fill="#000" opacity="0.25"></text>
-    <text x="903" y="138" textLength="0"></text>
+    <text x="913" y="148" textLength="70" fill="#000" opacity="0.25">0</text>
+    <text x="903" y="138" textLength="70">0</text>
   </g>
   
   <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
