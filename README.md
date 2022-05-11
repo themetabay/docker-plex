@@ -1,5 +1,4 @@
-[![](https://images.microbadger.com/badges/image/themetabay/plex.svg)](https://microbadger.com/images/themetabay/plex "Get your own image badge on microbadger.com")  [![Docker Stars](https://img.shields.io/docker/stars/themetabay/plex.svg)](https://hub.docker.com/r/themetabay/plex/)  [![Docker Pulls](https://img.shields.io/docker/pulls/themetabay/plex.svg)](https://hub.docker.com/r/themetabay/plex/) ![Image Layers](./.github/badges/layers.svg)
-<img src="./.github/badges/layers.svg">
+[![](https://images.microbadger.com/badges/image/themetabay/plex.svg)](https://microbadger.com/images/themetabay/plex "Get your own image badge on microbadger.com")  [![Docker Stars](https://img.shields.io/docker/stars/themetabay/plex.svg)](https://hub.docker.com/r/themetabay/plex/)  [![Docker Pulls](https://img.shields.io/docker/pulls/themetabay/plex.svg)](https://hub.docker.com/r/themetabay/plex/) [![Image Layers](./.github/badges/layers.svg)](https://hub.docker.com/r/themetabay/plex/)
 
 # Information:
 More information can be found here: https://github.com/plexinc/pms-docker
